@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.18)
 
 project(tinyNET)
 
-set(CONAN_DISABLE_CHECK_COMPILER ON)
+find_library(tinySAK REQUIRED)
 
 add_definitions(-DTINYNET_IMPORTS_IGNORE)
 add_definitions(-DTINYSAK_IMPORTS_IGNORE)
@@ -47,6 +47,6 @@ add_library(${PROJECT_NAME} ${TINY_NET_SOURCE})
 
 if (BUILD_SHARED_LIBS)
     if (WIN32)
-        target_link_libraries(${PROJECT_NAME} tinySAK Winmm Ws2_32 Iphlpapi)
+        target_link_libraries(${PROJECT_NAME} tinySAK::tinySAK Winmm Ws2_32 Iphlpapi)
     endif ()
 endif ()
