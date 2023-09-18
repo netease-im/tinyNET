@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.18)
 
 project(tinyNET)
 
-find_package(tinySAK REQUIRED)
+find_package(tinysak REQUIRED)
 
 add_definitions(-DTINYNET_IMPORTS_IGNORE)
 add_definitions(-DTINYSAK_IMPORTS_IGNORE)
@@ -51,4 +51,4 @@ if (BUILD_SHARED_LIBS)
     endif ()
 endif ()
 
-target_link_libraries(${PROJECT_NAME} tinySAK::tinySAK)
+target_link_libraries(${PROJECT_NAME} tinysak::tinysak)
