@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.18)
 
-project(tinyNET)
+project(tinynet)
 
 find_package(tinysak REQUIRED)
 
