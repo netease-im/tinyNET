@@ -3,9 +3,11 @@ cmake_minimum_required(VERSION 3.18)
 project(tinynet)
 
 find_package(tinysak REQUIRED)
+find_package(openssl REQUIRED)
 
 add_definitions(-DTINYNET_IMPORTS_IGNORE)
 add_definitions(-DTINYSAK_IMPORTS_IGNORE)
+add_definitions(-DHAVE_OPENSSL)
 
 if (BUILD_SHARED_LIBS)
     add_definitions(-DTINYNET_EXPORTS)
@@ -51,4 +53,7 @@ if (BUILD_SHARED_LIBS)
     endif ()
 endif ()
 
-target_link_libraries(${PROJECT_NAME} tinysak::tinysak)
+target_link_libraries(${PROJECT_NAME} PRIVATE
+    tinysak::tinysak
+    openssl::openssl
+)
